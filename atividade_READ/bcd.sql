@@ -23,7 +23,7 @@ SELECT * FROM cliente;
 SELECT nome_cliente, email, cidade, estado FROM cliente;
 
 /*Instrução 07:*/
-SELECT nome_cliente, cidade,
+SELECT nome_cliente, cidade
 FROM cliente 
 ORDER BY estado ASC;
 
@@ -38,15 +38,15 @@ SELECT * FROM venda;
 /*Instrução 10:*/
 SELECT cliente.nome_cliente, data_venda, preco_unitario_venda, forma_pagamento 
 FROM cliente 
-INNER JOIN venda;
+INNER JOIN venda ON cliente.id_cliente = venda.id_cliente;
 
 /*Instrução 11:*/
-SELECT produto.nome_produto, venda.data_venda, venda.quantidade, venda.status_venda
-FROM produto
-INNER JOIN venda;
+SELECT produto.nome_produto, venda.data_venda, venda.quantidade, venda.status_venda 
+FROM produto 
+INNER JOIN venda ON produto.id_produto = venda.id_produto;
 
 /*Instrução 12:*/
-SELECT produto.nome_produto, .produto.preco_unitario, venda.forma_pagamento 
+SELECT produto.nome_produto, produto.preco_unitario, venda.forma_pagamento 
 FROM produto 
 INNER JOIN venda ON venda.id_produto = produto.id_produto
 WHERE venda.forma_pagamento IN ("pix", "boleto");
@@ -58,7 +58,7 @@ INNER JOIN venda ON cliente.id_cliente = venda.id_cliente
 INNER JOIN produto ON venda.id_produto = produto.id_produto;
 
 /*Instrução 14:*/
-SELECT produto.nome_produto, , venda.desconto_percentual, venda.forma_pagamento 
+SELECT produto.nome_produto, venda.desconto_percentual, venda.forma_pagamento 
 FROM venda 
 INNER JOIN cliente  ON venda.id_cliente = cliente.id_cliente 
 INNER JOIN produto  ON venda.id_produto = produto.id_produto 
