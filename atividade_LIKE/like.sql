@@ -38,7 +38,7 @@ contenha a palavra "Polegada".
 SELECT produto.nome_produto, produto.preco_unitario, venda.id_venda, venda.forma_pagamento
 FROM venda INNER JOIN produto ON venda.id_produto = produto.id_produto
 WHERE venda.forma_pagamento IN ("Pix", "Boleto")
-AND produto.nome_produto LIKE "%Polegadas";
+AND produto.nome_produto LIKE "%Polegada%";
 
 /*7. Consulte o nome do produto, nome do cliente, desconto e forma de pagamento em ordem 
 alfabética (crescente) por status da venda onde o nome do produto contenha "Placa" ou "Notebook"
